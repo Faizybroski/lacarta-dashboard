@@ -29,6 +29,11 @@ import { SettingsNotifications } from '@/features/settings/notifications'
 import { SettingsProfile } from '@/features/settings/profile'
 import { Tasks } from '@/features/tasks/index'
 import { Users } from '@/features/users/index'
+import { Subscription } from '@/features/subscription/index'
+import { Events } from '@/features/events and calender/index'
+import {DealsPage} from '@/features/deals-page/index'
+import {ActiveDealsPage} from '@/features/deals-page/ActiveDealsPage'
+import {ContentPage} from '@/features/content/index'
 
 function ErrorComponent() {
   const { error } = useParams<{ error?: string }>()
@@ -67,6 +72,18 @@ export default (
     <Route path='/chats' element={<Chats />} />
     <Route path='/apps' element={<Apps />} />
     <Route path='/help-center' element={<ComingSoon />} />
+    <Route path='/subscriptions' element={<Subscription />} />
+    <Route path='/events-&-calenders' element={<Events />} />
+    <Route path='/deals/all-deals' element={<DealsPage />} />
+    <Route path='/deals/active-deals' element={<ActiveDealsPage />} />
+
+    <Route path='/content' element={<ContentPage />}>
+      {/* <Route path='/content/articles' element={<SettingsAppearance />} />
+      <Route path='/content/articles' element={<SettingsAccount />} />
+      <Route path='/content/articles' element={<SettingsDisplay />} />
+      <Route path='/content/articles' element={<SettingsNotifications />} />
+      <Route path='/content/articles' element={<SettingsNotifications />} /> */}
+    </Route>
 
     <Route path='/settings' element={<Settings />}>
       <Route index element={<SettingsProfile />} />

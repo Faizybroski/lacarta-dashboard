@@ -265,14 +265,13 @@
 //     disabled: true,
 //   },
 // ]
-
-
 // import React from 'react'
-import { Button } from '@/components/ui/button'
+// import { Plus, Bell } from 'lucide-react'
+// import { Button } from '@/components/ui/button'
 import {
   Card,
   CardContent,
-  CardDescription,
+  // CardDescription,
   CardHeader,
   CardTitle,
 } from '@/components/ui/card'
@@ -285,35 +284,32 @@ import {
 import { Header } from '@/components/layout/header'
 import { Main } from '@/components/layout/main'
 // import { TopNav } from '@/components/layout/top-nav'
-import { ProfileDropdown } from '@/components/profile-dropdown'
-import { Search } from '@/components/search'
-import { ThemeSwitch } from '@/components/theme-switch'
+// import { ProfileDropdown } from '@/components/profile-dropdown'
+// import { Search } from '@/components/search'
+// import { ThemeSwitch } from '@/components/theme-switch'
 // import { Overview } from './components/overview'
 import { VisitorsEngagementChart } from './components/VisitorsEngagementChart'
 import { Analytics } from './components/analytics'
-import { RecentSales } from './components/recent-sales'
+import { AnalyticsPanels } from './components/analyticsPanels'
+import { EventsAndDeals } from './components/eventsAndDeals'
+import { QuickActions } from './components/quick-action'
+
+// import { RecentSales } from './components/recent-sales'
 
 export function Dashboard() {
   return (
     <>
       {/* ===== Top Heading ===== */}
-      <Header>
-        {/* <TopNav links={topNav} /> */}
-        <Search />
-        <div className='ms-auto flex items-center space-x-4'>
-          <Button>New Article</Button>
-          <ThemeSwitch />
-          {/* <ConfigDrawer /> */}
-          <ProfileDropdown />
-        </div>
-      </Header>
+      <Header />
 
       {/* ===== Main ===== */}
       <Main>
         <div className='mb-2 space-y-2'>
           <h1 className='text-2xl font-bold tracking-tight'>
             Welcome back,{' '}
-            <span className='text-2xl font-bold tracking-tight'>Maria</span>
+            <span className='text-2xl font-bold tracking-tight text-gold'>
+              Maria
+            </span>
           </h1>
           <p className='mb-10 text-xs text-muted-foreground'>
             Here's what happening with Lacarta.co today.
@@ -338,10 +334,10 @@ export function Dashboard() {
           </div> */}
           <TabsContent value='overview' className='space-y-4'>
             <div className='grid gap-4 sm:grid-cols-3 lg:grid-cols-6'>
-              <Card>
+              <Card className='bg-gold'>
                 <CardHeader className='flex flex-row items-center justify-between space-y-0 pb-2'>
                   <CardTitle className='text-sm font-medium'>
-                    Total Publisheds
+                    Total Visitors
                   </CardTitle>
                   <svg
                     xmlns='http://www.w3.org/2000/svg'
@@ -357,7 +353,7 @@ export function Dashboard() {
                   </svg>
                 </CardHeader>
                 <CardContent>
-                  <div className='text-2xl font-bold'>247</div>
+                  <div className='text-2xl font-bold'>124.5K</div>
                   <p className='text-xs text-muted-foreground'>Articles</p>
                 </CardContent>
               </Card>
@@ -482,7 +478,7 @@ export function Dashboard() {
             </div>
             <div className='grid grid-cols-1 gap-4 lg:grid-cols-7'>
               <VisitorsEngagementChart />
-              <Card className='lg:col-span-3'>
+              {/* <Card className='lg:col-span-3'>
                 <CardHeader>
                   <CardTitle>Recent Sales</CardTitle>
                   <CardDescription>
@@ -492,8 +488,11 @@ export function Dashboard() {
                 <CardContent>
                   <RecentSales />
                 </CardContent>
-              </Card>
+              </Card> */}
+              <QuickActions />
             </div>
+            <AnalyticsPanels />
+            <EventsAndDeals />
           </TabsContent>
           <TabsContent value='analytics' className='space-y-4'>
             <Analytics />
