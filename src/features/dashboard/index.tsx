@@ -314,7 +314,7 @@ export function Dashboard() {
       {/* ===== Main ===== */}
       <Main>
         <div className='mb-6 h-20 space-y-1 pt-2'>
-          <h1 className='font-serif text-4xl font-semibold tracking-normal text-[#1a1c1e] dark:text-white'>
+          <h1 className='font-antigua font-serif text-4xl font-semibold tracking-normal text-[#1a1c1e] dark:text-white'>
             Welcome back, <span className='text-[#c4a04d]'>Maria</span>
           </h1>
           <p className='text-sm text-muted-foreground'>
@@ -352,7 +352,7 @@ export function Dashboard() {
                 </CardHeader>
                 <CardContent className='pt-2'>
                   <p className='mb-0 text-sm text-white/90'>Total Visitors</p>
-                  <div className='mb-2 font-serif text-[34px] font-bold tracking-tight'>
+                  <div className='font-antigua mb-2 text-[34px] font-bold tracking-tight'>
                     124.5K
                   </div>
                   <p className='relative z-10 text-[10px] text-white/75'>
@@ -374,7 +374,7 @@ export function Dashboard() {
                 </CardHeader>
                 <CardContent className='pt-2'>
                   <p className='mb-0 text-sm text-white/90'>New Users</p>
-                  <div className='mb-2 font-serif text-[34px] font-bold tracking-tight'>
+                  <div className='font-georgia mb-2 text-[34px] font-bold tracking-tight'>
                     8,432
                   </div>
                   <p className='relative z-10 text-[10px] text-white/75'>
@@ -396,7 +396,7 @@ export function Dashboard() {
                 </CardHeader>
                 <CardContent className='pt-2'>
                   <p className='mb-0 text-sm text-white/90'>Engagement</p>
-                  <div className='mb-2 font-serif text-[34px] font-bold tracking-tight'>
+                  <div className='font-georgia mb-2 text-[34px] font-bold tracking-tight'>
                     156
                   </div>
                   <p className='relative z-10 text-[10px] text-white/75'>
@@ -417,7 +417,7 @@ export function Dashboard() {
                 </CardHeader>
                 <CardContent className='pt-2'>
                   <p className='mb-0 text-sm text-white/90'>Heart Saves</p>
-                  <div className='mb-2 font-serif text-[34px] font-bold tracking-tight'>
+                  <div className='font-georgia mb-2 text-[34px] font-bold tracking-tight'>
                     2,847
                   </div>
                   <p className='relative z-10 text-[10px] text-white/75'>
@@ -437,7 +437,7 @@ export function Dashboard() {
                 </CardHeader>
                 <CardContent className='pt-2'>
                   <p className='mb-0 text-sm text-white/90'>Link Clicks</p>
-                  <div className='mb-2 font-serif text-[34px] font-bold tracking-tight'>
+                  <div className='font-georgia mb-2 text-[34px] font-bold tracking-tight'>
                     18,420
                   </div>
                   <p className='relative z-10 text-[10px] text-white/75'>
@@ -457,7 +457,7 @@ export function Dashboard() {
                 </CardHeader>
                 <CardContent className='pt-2'>
                   <p className='mb-0 text-sm text-white/90'>Inquiries</p>
-                  <div className='mb-2 font-serif text-[34px] font-bold tracking-tight'>
+                  <div className='font-georgia mb-2 text-[34px] font-bold tracking-tight'>
                     12
                   </div>
                   <p className='relative z-10 text-[10px] text-white/75'>
