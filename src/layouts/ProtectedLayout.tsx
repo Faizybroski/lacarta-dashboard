@@ -1,6 +1,7 @@
 import { Outlet, Navigate } from 'react-router-dom'
 import { useAuthStore } from '@/stores/auth-store'
-import { getCookie } from '@/lib/cookies'
+import AuthGuard from '@/lib/auth/auth.guard'
+import { getCookie } from '@/lib/cookies/cookies'
 import { cn } from '@/lib/utils'
 import { LayoutProvider } from '@/context/layout-provider'
 import { SearchProvider } from '@/context/search-provider'
@@ -16,12 +17,12 @@ export default function ProtectedLayout({
   children,
 }: AuthenticatedLayoutProps) {
   const defaultOpen = getCookie('sidebar_state') !== 'false'
-  const accessToken = useAuthStore((s) => s.auth.accessToken)
-  const isAuthenticated = Boolean(accessToken)
+  // const accessToken = useAuthStore((s) => s.auth.accessToken)
+  // const isAuthenticated = Boolean(accessToken)
 
-  if (!isAuthenticated) {
-    return <Navigate to='/sign-in' replace />
-  }
+  // if (!isAuthenticated) {
+  //   return <Navigate to='/sign-in' replace />
+  // }
 
   return (
     // <LayoutProvider>
@@ -31,6 +32,7 @@ export default function ProtectedLayout({
     //     </SearchProvider>
     //   </SidebarProvider>
     // </LayoutProvider>
+    <AuthGuard>
     <SearchProvider>
       <LayoutProvider>
         <SidebarProvider defaultOpen={defaultOpen}>
@@ -55,5 +57,6 @@ export default function ProtectedLayout({
         </SidebarProvider>
       </LayoutProvider>
     </SearchProvider>
+    </AuthGuard>
   )
 }
