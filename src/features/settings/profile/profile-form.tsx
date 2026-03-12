@@ -64,7 +64,11 @@ const profileFormSchema = z.object({
         ? 'Please select an email to display.'
         : undefined,
   }),
-  bio: z.string().max(200).min(4).optional(),
+  // bio: z.string().max(200).min(4).optional(),
+  bio: z.preprocess(
+    (v) => (v === '' ? undefined : v),
+    z.string().min(4).max(200).optional()
+  ),
 
   // dob: z.date('Please select your date of birth.'),
   // language: z.string('Please select a language.'),
