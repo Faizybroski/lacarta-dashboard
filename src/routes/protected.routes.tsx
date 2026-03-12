@@ -13,10 +13,10 @@ import { Header } from '@/components/layout/header'
 import { ProfileDropdown } from '@/components/profile-dropdown'
 import { Search } from '@/components/search'
 import { ThemeSwitch } from '@/components/theme-switch'
+import { CategoryPage } from '@/features/Filters/index'
 import { OwnerListingEditorPage } from '@/features/Owner-Page/index'
 import { AnalyticsPage } from '@/features/analytics/index'
 import { Apps } from '@/features/apps/index'
-import { CategoryPage } from '@/features/categories/index'
 import { Chats } from '@/features/chats/index'
 import { ArticleContent } from '@/features/content/article'
 import { CategoryContent } from '@/features/content/category'
@@ -95,7 +95,7 @@ export default (
       path='/analytics/owner-analytics'
       element={<OwnerListingEditorPage />}
     />
-    <Route path='/categories' element={<CategoryPage />} />
+    <Route path='/filters' element={<CategoryPage />} />
 
     <Route path='/content' element={<ContentPage />}>
       <Route index element={<ArticleContent />} />

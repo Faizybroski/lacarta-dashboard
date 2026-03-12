@@ -9,6 +9,13 @@ import {
   Trash2,
   Search,
   FolderOpen,
+  MapPin,
+  Star,
+  Wrench,
+  Gem,
+  CloudSun,
+  UtensilsCrossed,
+  Tag,
 } from 'lucide-react'
 import { toast } from 'sonner'
 import { supabase } from '@/lib/supabase/supabase'
@@ -44,6 +51,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { Textarea } from '@/components/ui/textarea'
 import { Header } from '@/components/layout/header'
 import { Main } from '@/components/layout/main'
+import { AttributeTab } from './AttributeTab'
 
 // ─── Types ───────────────────────────────────────────────────────────────────
 
@@ -452,14 +460,38 @@ export function CategoryPage() {
 
         {/* ── Tabs ────────────────────────────────────────── */}
         <Tabs defaultValue='categories'>
-          <TabsList className='mb-4'>
+          <TabsList className='mb-4 h-auto flex-wrap gap-1'>
             <TabsTrigger value='categories' className='gap-1.5'>
               <Layers className='h-3.5 w-3.5' />
               Categories
             </TabsTrigger>
             <TabsTrigger value='subcategories' className='gap-1.5'>
               <FolderTree className='h-3.5 w-3.5' />
-              Sub-categories
+              Types
+            </TabsTrigger>
+            <TabsTrigger value='neighborhoods' className='gap-1.5'>
+              <MapPin className='h-3.5 w-3.5' />
+              Neighborhoods
+            </TabsTrigger>
+            <TabsTrigger value='key_features' className='gap-1.5'>
+              <Star className='h-3.5 w-3.5' />
+              Key Features
+            </TabsTrigger>
+            <TabsTrigger value='services' className='gap-1.5'>
+              <Wrench className='h-3.5 w-3.5' />
+              Services
+            </TabsTrigger>
+            <TabsTrigger value='amenities' className='gap-1.5'>
+              <Gem className='h-3.5 w-3.5' />
+              Amenities
+            </TabsTrigger>
+            <TabsTrigger value='atmosphere' className='gap-1.5'>
+              <CloudSun className='h-3.5 w-3.5' />
+              Atmosphere
+            </TabsTrigger>
+            <TabsTrigger value='menu' className='gap-1.5'>
+              <UtensilsCrossed className='h-3.5 w-3.5' />
+              Menu
             </TabsTrigger>
           </TabsList>
 
@@ -925,6 +957,50 @@ export function CategoryPage() {
                 )}
               </CardContent>
             </Card>
+          </TabsContent>
+
+          {/* ── Attribute Tabs ─────────────────────────────── */}
+          <TabsContent value='neighborhoods'>
+            <AttributeTab
+              attrType='neighborhood'
+              label='Neighborhood'
+              categories={categories}
+            />
+          </TabsContent>
+          <TabsContent value='key_features'>
+            <AttributeTab
+              attrType='key_feature'
+              label='Key Feature'
+              categories={categories}
+            />
+          </TabsContent>
+          <TabsContent value='services'>
+            <AttributeTab
+              attrType='service'
+              label='Service'
+              categories={categories}
+            />
+          </TabsContent>
+          <TabsContent value='amenities'>
+            <AttributeTab
+              attrType='amenity'
+              label='Amenity'
+              categories={categories}
+            />
+          </TabsContent>
+          <TabsContent value='atmosphere'>
+            <AttributeTab
+              attrType='atmosphere'
+              label='Atmosphere'
+              categories={categories}
+            />
+          </TabsContent>
+          <TabsContent value='menu'>
+            <AttributeTab
+              attrType='menu'
+              label='Menu'
+              categories={categories}
+            />
           </TabsContent>
         </Tabs>
       </Main>

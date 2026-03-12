@@ -22,6 +22,7 @@ import {
   Command,
   GalleryVerticalEnd,
 } from 'lucide-react'
+
 // import { ClerkLogo } from '@/assets/clerk-logo'
 // import { type SidebarData } from '../types'
 
@@ -254,7 +255,7 @@ export const sidebarData: any = {
         {
           title: 'Content',
           icon: ListTodo,
-           items: [
+          items: [
             {
               title: 'Articles',
               url: '/content',
@@ -320,16 +321,16 @@ export const sidebarData: any = {
           ],
         },
         {
-          title: 'Categories',
-          url: '/categories',
+          title: 'Filters',
+          url: '/filters',
           icon: Package,
         },
-      // ],
-    // },
+        // ],
+        // },
 
-    // {
-    //   title: 'Pages',
-      // items: [
+        // {
+        //   title: 'Pages',
+        // items: [
         {
           title: 'Auth',
           icon: ShieldCheck,
@@ -387,11 +388,11 @@ export const sidebarData: any = {
             },
           ],
         },
-    //   ],
-    // },
-    // {
-    //   title: 'QUICK ACTIONS',
-    //   items: [
+        //   ],
+        // },
+        // {
+        //   title: 'QUICK ACTIONS',
+        //   items: [
         {
           title: 'Settings',
           icon: Settings,
@@ -428,12 +429,12 @@ export const sidebarData: any = {
           url: '/new-article',
           icon: HelpCircle,
         },
-         {
+        {
           title: 'Listing from First Tier',
           url: '/listing-tier',
           icon: HelpCircle,
         },
-         {
+        {
           title: 'Upload Resourses',
           url: '/upload-resourses',
           icon: HelpCircle,
