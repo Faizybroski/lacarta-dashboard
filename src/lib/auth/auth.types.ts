@@ -9,7 +9,9 @@ export type UserRole =
 export interface AuthUser {
   accountNo: string
   email: string
+  bio: string
   name: string
+  profile_photo_url: string
   role: UserRole[]
   exp: number
 }

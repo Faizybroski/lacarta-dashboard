@@ -3,11 +3,13 @@ import { z } from 'zod'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Loader2, LogIn } from 'lucide-react'
-import { Link, useNavigate } from 'react-router-dom'
-import { toast } from 'sonner'
+import { 
+  // Link, 
+  useNavigate } from 'react-router-dom'
+// import { toast } from 'sonner'
 // import { useAuthStore } from '@/stores/auth-store'
 import { signIn } from '@/lib/auth/auth.service'
-import { supabase } from '@/lib/supabase/supabase'
+// import { supabase } from '@/lib/supabase/supabase'
 import { cn } from '@/lib/utils'
 import { Button } from '@/components/ui/button'
 import {
@@ -152,17 +154,17 @@ export function UserAuthForm({
                 <PasswordInput placeholder='********' {...field} />
               </FormControl>
               <FormMessage />
-              <Link
+              {/* <Link
                 to='/forgot-password'
                 className='absolute end-0 -top-0.5 text-sm font-medium text-muted-foreground hover:opacity-75'
               >
                 Forgot password?
-              </Link>
+              </Link> */}
             </FormItem>
           )}
         />
         <Button
-          className='mt-2 bg-gradient-to-r from-[#CF9921] to-[#D2BB6B]'
+          className='mt-2 bg-linear-to-b from-gold to-gold-light'
           disabled={isLoading}
         >
           {isLoading ? <Loader2 className='animate-spin' /> : <LogIn />}

@@ -26,7 +26,7 @@ export function ProfileDropdown() {
         <DropdownMenuTrigger asChild>
           <Button variant='ghost' className='relative h-8 w-8 rounded-full'>
             <Avatar className='h-8 w-8'>
-              <AvatarImage src='/avatars/01.png' alt='@shadcn' />
+              <AvatarImage src={user?.profile_photo_url}  />
               <AvatarFallback>
                 {user?.name
                   ?.split(' ')
@@ -51,29 +51,28 @@ export function ProfileDropdown() {
             <DropdownMenuItem asChild>
               <Link to='/settings'>
                 Profile
-                <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut>
               </Link>
             </DropdownMenuItem>
-            <DropdownMenuItem asChild>
+            {/* <DropdownMenuItem asChild>
               <Link to='/settings'>
                 Billing
                 <DropdownMenuShortcut>⌘B</DropdownMenuShortcut>
               </Link>
-            </DropdownMenuItem>
-            <DropdownMenuItem asChild>
+            </DropdownMenuItem> */}
+            {/* <DropdownMenuItem asChild>
               <Link to='/settings'>
                 Settings
                 <DropdownMenuShortcut>⌘S</DropdownMenuShortcut>
               </Link>
-            </DropdownMenuItem>
-            <DropdownMenuItem>New Team</DropdownMenuItem>
+            </DropdownMenuItem> */}
+            {/* <DropdownMenuItem>New Team</DropdownMenuItem> */}
           </DropdownMenuGroup>
           <DropdownMenuSeparator />
           <DropdownMenuItem variant='destructive' onClick={() => setOpen(true)}>
             Sign out
-            <DropdownMenuShortcut className='text-current'>
+            {/* <DropdownMenuShortcut className='text-current'>
               ⇧⌘Q
-            </DropdownMenuShortcut>
+            </DropdownMenuShortcut> */}
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
