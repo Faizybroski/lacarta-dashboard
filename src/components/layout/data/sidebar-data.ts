@@ -24,7 +24,13 @@ import {
   BarChart2,
 } from 'lucide-react'
 
-export type UserRole = 'owner' | 'admin' | 'assistant' | 'editor' | 'client' | 'subscriber'
+export type UserRole =
+  | 'owner'
+  | 'admin'
+  | 'assistant'
+  | 'editor'
+  | 'client'
+  | 'subscriber'
 
 export function getSidebarNavForRole(role: UserRole | string | undefined) {
   switch (role) {
@@ -32,7 +38,11 @@ export function getSidebarNavForRole(role: UserRole | string | undefined) {
       return [
         {
           items: [
-            { title: 'Dashboard', url: '/owner/dashboard', icon: LayoutDashboard },
+            {
+              title: 'Dashboard',
+              url: '/owner/dashboard',
+              icon: LayoutDashboard,
+            },
             {
               title: 'Content',
               icon: ListTodo,
@@ -44,7 +54,11 @@ export function getSidebarNavForRole(role: UserRole | string | undefined) {
                 { title: 'Travel Tools', url: '/content/travel-tools' },
               ],
             },
-            { title: 'Events & Calendars', url: '/events-&-calenders', icon: Package },
+            {
+              title: 'Events & Calendars',
+              url: '/events-&-calenders',
+              icon: Package,
+            },
             {
               title: 'Analytics',
               icon: MessagesSquare,
@@ -69,9 +83,7 @@ export function getSidebarNavForRole(role: UserRole | string | undefined) {
             {
               title: 'Settings',
               icon: Settings,
-              items: [
-                { title: 'Profile', url: '/settings', icon: UserCog },
-              ],
+              items: [{ title: 'Profile', url: '/settings', icon: UserCog }],
             },
           ],
         },
@@ -81,7 +93,11 @@ export function getSidebarNavForRole(role: UserRole | string | undefined) {
       return [
         {
           items: [
-            { title: 'Dashboard', url: '/admin/dashboard', icon: LayoutDashboard },
+            {
+              title: 'Dashboard',
+              url: '/admin/dashboard',
+              icon: LayoutDashboard,
+            },
             {
               title: 'Content',
               icon: ListTodo,
@@ -93,7 +109,11 @@ export function getSidebarNavForRole(role: UserRole | string | undefined) {
                 { title: 'Travel Tools', url: '/content/travel-tools' },
               ],
             },
-            { title: 'Events & Calendars', url: '/events-&-calenders', icon: Package },
+            {
+              title: 'Events & Calendars',
+              url: '/events-&-calenders',
+              icon: Package,
+            },
             {
               title: 'Analytics',
               icon: MessagesSquare,
@@ -117,9 +137,7 @@ export function getSidebarNavForRole(role: UserRole | string | undefined) {
             {
               title: 'Settings',
               icon: Settings,
-              items: [
-                { title: 'Profile', url: '/settings', icon: UserCog },
-              ],
+              items: [{ title: 'Profile', url: '/settings', icon: UserCog }],
             },
           ],
         },
@@ -129,7 +147,11 @@ export function getSidebarNavForRole(role: UserRole | string | undefined) {
       return [
         {
           items: [
-            { title: 'Dashboard', url: '/assistant/dashboard', icon: LayoutDashboard },
+            {
+              title: 'Dashboard',
+              url: '/assistant/dashboard',
+              icon: LayoutDashboard,
+            },
             {
               title: 'Content',
               icon: ListTodo,
@@ -141,7 +163,11 @@ export function getSidebarNavForRole(role: UserRole | string | undefined) {
                 { title: 'Travel Tools', url: '/content/travel-tools' },
               ],
             },
-            { title: 'Events & Calendars', url: '/events-&-calenders', icon: Package },
+            {
+              title: 'Events & Calendars',
+              url: '/events-&-calenders',
+              icon: Package,
+            },
             {
               title: 'Analytics',
               icon: BarChart2,
@@ -162,9 +188,7 @@ export function getSidebarNavForRole(role: UserRole | string | undefined) {
             {
               title: 'Settings',
               icon: Settings,
-              items: [
-                { title: 'Profile', url: '/settings', icon: UserCog },
-              ],
+              items: [{ title: 'Profile', url: '/settings', icon: UserCog }],
             },
           ],
         },
@@ -174,7 +198,11 @@ export function getSidebarNavForRole(role: UserRole | string | undefined) {
       return [
         {
           items: [
-            { title: 'Dashboard', url: '/editor/dashboard', icon: LayoutDashboard },
+            {
+              title: 'Dashboard',
+              url: '/editor/dashboard',
+              icon: LayoutDashboard,
+            },
             {
               title: 'Content',
               icon: ListTodo,
@@ -189,9 +217,7 @@ export function getSidebarNavForRole(role: UserRole | string | undefined) {
             {
               title: 'Settings',
               icon: Settings,
-              items: [
-                { title: 'Profile', url: '/settings', icon: UserCog },
-              ],
+              items: [{ title: 'Profile', url: '/settings', icon: UserCog }],
             },
           ],
         },
@@ -201,23 +227,27 @@ export function getSidebarNavForRole(role: UserRole | string | undefined) {
       return [
         {
           items: [
-            { title: 'Dashboard', url: '/client/dashboard', icon: LayoutDashboard },
+            {
+              title: 'Dashboard',
+              url: '/client/dashboard',
+              icon: LayoutDashboard,
+            },
             { title: 'My Listings', url: '/my-listings', icon: Building2 },
-            { title: 'Events & Calendars', url: '/events-&-calenders', icon: Package },
+            {
+              title: 'Events & Calendars',
+              url: '/events-&-calenders',
+              icon: Package,
+            },
             {
               title: 'Deals',
               icon: Users,
-              items: [
-                { title: 'Active Deals', url: '/deals/active-deals' },
-              ],
+              items: [{ title: 'Active Deals', url: '/deals/active-deals' }],
             },
             { title: 'Subscriptions', url: '/subscriptions', icon: Package },
             {
               title: 'Settings',
               icon: Settings,
-              items: [
-                { title: 'Profile', url: '/settings', icon: UserCog },
-              ],
+              items: [{ title: 'Profile', url: '/settings', icon: UserCog }],
             },
           ],
         },
@@ -227,22 +257,22 @@ export function getSidebarNavForRole(role: UserRole | string | undefined) {
       return [
         {
           items: [
-            { title: 'Dashboard', url: '/subscriber/dashboard', icon: LayoutDashboard },
+            {
+              title: 'Dashboard',
+              url: '/subscriber/dashboard',
+              icon: LayoutDashboard,
+            },
             {
               title: 'Content',
               icon: ListTodo,
-              items: [
-                { title: 'Articles', url: '/content' },
-              ],
+              items: [{ title: 'Articles', url: '/content' }],
             },
             { title: 'Favourites', url: '/favourites', icon: Heart },
             { title: 'Resources', url: '/resources', icon: Download },
             {
               title: 'Settings',
               icon: Settings,
-              items: [
-                { title: 'Profile', url: '/settings', icon: UserCog },
-              ],
+              items: [{ title: 'Profile', url: '/settings', icon: UserCog }],
             },
           ],
         },
