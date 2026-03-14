@@ -1455,7 +1455,7 @@ function RichTextEditor({
 
         <div className='mx-1 h-4 w-px bg-border' />
 
-        <ToolBtn
+        {/* <ToolBtn
           title='Heading 1'
           label='H1'
           onClick={() => editor.chain().focus().toggleHeading({ level: 1 }).run()}
@@ -1499,7 +1499,7 @@ function RichTextEditor({
           title='Blockquote'
           label='❝'
           onClick={() => editor.chain().focus().toggleBlockquote().run()}
-        />
+        /> */}
 
         <ToolBtn
           title='Code Block'
@@ -1507,7 +1507,7 @@ function RichTextEditor({
           onClick={() => editor.chain().focus().toggleCodeBlock().run()}
         />
 
-        <div className='mx-1 h-4 w-px bg-border' />
+        {/* <div className='mx-1 h-4 w-px bg-border' />
         <ToolBtn
           title='Align Left'
           label='⬅'
@@ -1526,7 +1526,7 @@ function RichTextEditor({
           onClick={() => editor.chain().focus().setTextAlign('right').run()}
         />
 
-        <div className='mx-1 h-4 w-px bg-border' />
+        <div className='mx-1 h-4 w-px bg-border' /> */}
 
         <ToolBtn
           title='Highlight'
