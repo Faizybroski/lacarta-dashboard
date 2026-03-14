@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useAuthStore } from '@/lib/auth/auth.store'
 import { Tabs, TabsContent } from '@/components/ui/tabs'
 import { Header } from '@/components/layout/header'
 import { Main } from '@/components/layout/main'
@@ -114,6 +115,7 @@ const DEMO_EVENTS: CalendarEvent[] = [
 
 export function Events() {
   const [currentMonth, setCurrentMonth] = useState(new Date())
+  const user = useAuthStore((s) => s.user)
 
   return (
     <>
@@ -146,7 +148,9 @@ export function Events() {
             onMonthChange={setCurrentMonth}
           />
           <UpcomingEvents />
-          <FeaturedEvents />
+          {(user?.role[0] === 'admin' ||
+            user?.role[0] === 'owner' ||
+            user?.role[0] === 'assistant') && <FeaturedEvents />}
           <DraftEvents />
           <EventCategories />
           <Insights />

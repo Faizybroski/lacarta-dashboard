@@ -6,7 +6,13 @@ import { Check, X, Clock, FileText } from 'lucide-react'
 // import { Calendar } from "@/components/ui/calendar"
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+} from '@/components/ui/card'
 // import { isSameDay } from "date-fns"
 import EventsScheduled from './calender-sec'
 
@@ -40,35 +46,37 @@ export function EventsAndDeals() {
       <EventsScheduled />
 
       {/* Pending Deals – unchanged, looks good */}
-      <Card className='flex flex-col rounded-xl border bg-white p-4 shadow-sm'>
-        <CardHeader className='px-0 pb-4'>
-          <div className='flex items-center justify-between'>
+      <Card className='flex flex-col rounded-xl border bg-white shadow-sm'>
+        <CardHeader className='flex  px-6 pb-4 justify-between items-center'>
+          <div className=''>
             <CardTitle className='font-antigua text-base font-semibold'>
               Pending Deals
             </CardTitle>
+            <CardDescription>3 items awaiting review</CardDescription>
+          </div>
 
+          {/* <p className='text-sm text-muted-foreground'>
+            3 items awaiting review
+          </p> */}
+          {/* <div> */}
             <Badge
               variant='secondary'
               className='flex items-center gap-1 rounded-full bg-[#FDF2E2] px-2 py-1 text-xs font-medium text-[#CF9921]'
             >
               <Clock className='h-3 w-3' />3
             </Badge>
-          </div>
-
-          <p className='text-sm text-muted-foreground'>
-            3 items awaiting review
-          </p>
+          {/* </div> */}
         </CardHeader>
 
-        <CardContent className='flex flex-col gap-3 px-0'>
+        <CardContent className='flex flex-col gap-3 px-3'>
           {pendingDeals.map((deal, i) => (
             <div
               key={i}
-              className='flex items-center justify-between rounded-lg bg-[#F9FAFB] p-4'
+              className='flex items-center justify-between flex-col sm:flex-row rounded-lg bg-[#F9FAFB] p-4'
             >
               {/* Left Section */}
               <div className='flex items-start gap-3'>
-                <div className='flex h-10 w-10 items-center justify-center rounded-lg bg-[#FDF2E2]'>
+                <div className='flex p-2 items-center justify-center rounded-lg bg-[#FDF2E2]'>
                   <FileText className='h-4 w-4 text-[#CF9921]' />
                 </div>
 

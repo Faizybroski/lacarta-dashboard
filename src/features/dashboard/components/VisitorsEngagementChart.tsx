@@ -54,12 +54,12 @@ const chartConfig = {
 export function VisitorsEngagementChart() {
   return (
     <Card className='flex flex-col lg:col-span-4'>
-      <CardHeader className='flex items-center justify-between pb-0'>
-        <div>
+      <CardHeader className='flex items-center justify-between flex-col sm:flex-row pb-0'>
+        <div className='self-start'>
           <CardTitle className='font-antigua'>Visitors vs Engagement</CardTitle>
           <CardDescription>Last 7 days performance</CardDescription>
         </div>
-        <div className='flex'>
+        <div className='flex self-end'>
           <div className='mb-2 flex items-center text-center text-sm text-muted-foreground'>
             <span className='inline-flex items-center'>
               <span className='mr-1.5 size-2 rounded-full bg-[#d40d00]'></span>

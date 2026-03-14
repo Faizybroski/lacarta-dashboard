@@ -93,23 +93,23 @@ export default (
         </RoleGuard>
       }
     />
-    <Route
+    {/* <Route
       path='/admin/dashboard'
       element={
         <RoleGuard allowed={['admin']}>
           <Dashboard />
         </RoleGuard>
       }
-    />
-    <Route
+    /> */}
+    {/* <Route
       path='/assistant/dashboard'
       element={
         <RoleGuard allowed={['assistant']}>
           <Dashboard />
         </RoleGuard>
       }
-    />
-    <Route
+    /> */}
+    {/* <Route
       path='/editor/dashboard'
       element={
         <RoleGuard allowed={['editor']}>
@@ -132,7 +132,7 @@ export default (
           <Dashboard />
         </RoleGuard>
       }
-    />
+    /> */}
 
     {/* Owner + Admin + Assistant */}
     <Route
@@ -283,7 +283,7 @@ export default (
 
     {/* Subscriber-specific */}
     <Route
-      path='/favourites'
+      path='/favorites'
       element={
         <RoleGuard allowed={['subscriber']}>
           <FavouritesPage />

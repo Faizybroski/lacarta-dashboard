@@ -167,7 +167,7 @@ function Sidebar({
       <div
         data-slot='sidebar'
         className={cn(
-          'flex h-full w-(--sidebar-width) flex-col bg-sidebar text-sidebar-foreground',
+          'flex h-full w-(--sidebar-width) flex-col bg-[radial-gradient(49.41%_47.56%_at_49.41%_50%,#3d3d3d_0%,#000000_100%)] text-sidebar-foreground',
           className
         )}
         {...props}
@@ -184,7 +184,7 @@ function Sidebar({
           data-sidebar='sidebar'
           data-slot='sidebar'
           data-mobile='true'
-          className='w-(--sidebar-width) bg-sidebar p-0 text-sidebar-foreground [&>button]:hidden'
+          className='w-(--sidebar-width) bg-[radial-gradient(circle,#3d3d3d_0%,#000000_100%)] p-0 text-sidebar-foreground [&>button]:hidden'
           style={
             {
               '--sidebar-width': SIDEBAR_WIDTH_MOBILE,
@@ -375,7 +375,7 @@ function SidebarContent({ className, ...props }: React.ComponentProps<'div'>) {
       data-slot='sidebar-content'
       data-sidebar='content'
       className={cn(
-        'flex min-h-0 flex-1 flex-col gap-2 overflow-auto group-data-[collapsible=icon]:overflow-hidden',
+        'flex min-h-0 flex-1 flex-col gap-2 overflow-auto bg-[radial-gradient(49.41%_47.56%_at_49.41%_50%,#3d3d3d_0%,#000000_100%)] shadow-[0_4px_20px_-4px_rgba(33,36,44,0.08)] backdrop-blur group-data-[collapsible=icon]:overflow-hidden',
         className
       )}
       {...props}

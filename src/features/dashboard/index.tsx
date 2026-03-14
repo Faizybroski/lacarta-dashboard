@@ -279,6 +279,7 @@ import {
   Clock,
   TrendingDown,
 } from 'lucide-react'
+import { useAuthStore } from '@/lib/auth/auth.store'
 import {
   Card,
   CardContent,
@@ -304,7 +305,6 @@ import { Analytics } from './components/analytics'
 import { AnalyticsPanels } from './components/analyticsPanels'
 import { EventsAndDeals } from './components/eventsAndDeals'
 import { QuickActions } from './components/quick-action'
-import { useAuthStore } from "@/lib/auth/auth.store"
 
 export function Dashboard() {
   const user = useAuthStore((state) => state.user)
@@ -317,7 +317,7 @@ export function Dashboard() {
       {/* ===== Main ===== */}
       <Main>
         <div className='mb-6 h-20 space-y-1 pt-2'>
-          <h1 className='font-antigua font-serif text-4xl font-semibold tracking-normal text-[#1a1c1e] dark:text-white'>
+          <h1 className='font-antigua font-serif text-2xl font-semibold tracking-normal text-[#1a1c1e] dark:text-white'>
             Welcome back, <span className='text-[#c4a04d]'>{user?.name}</span>
           </h1>
           <p className='text-sm text-muted-foreground'>
@@ -342,7 +342,7 @@ export function Dashboard() {
             </TabsList>
           </div> */}
           <TabsContent value='overview' className='space-y-4'>
-            <div className='grid gap-4 sm:grid-cols-2 lg:grid-cols-6'>
+            <div className='grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-6'>
               <Card className='relative overflow-hidden border-none bg-gradient-to-r from-[#CF9921] to-[#D2BB6B] text-white shadow-md'>
                 <CardHeader className='flex flex-row items-center justify-between pb-2'>
                   <div className='rounded-lg bg-white/20 p-2'>

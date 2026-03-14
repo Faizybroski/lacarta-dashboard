@@ -48,8 +48,10 @@ const categories = [
 export default function CategoryCard() {
   return (
     <Card className='border-0 px-0 shadow-none'>
-      <CardHeader className='flex flex-row items-center justify-between px-0 pb-2'>
-        <CardTitle className='font-antigua text-xl'>Categories</CardTitle>
+      <CardHeader className='flex flex-col items-center justify-between px-0 pb-2 sm:flex-row'>
+        <CardTitle className='font-antigua self-start text-start text-xl'>
+          Categories
+        </CardTitle>
         <div className='flex gap-3'>
           <Button
             variant='outline'
@@ -77,7 +79,7 @@ export default function CategoryCard() {
                 >
                   {cat.letter}
                 </span>
-                <h3 className='font-antigua mt-3 mb-0 pb-0 font-bold'>
+                <h3 className='font-antigua mt-3 mb-0 pb-0 font-bold break-all'>
                   {cat.name}
                 </h3>
                 <p className='text-sm text-gray-400'>{cat.count} articles</p>

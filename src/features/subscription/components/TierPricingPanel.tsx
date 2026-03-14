@@ -1007,7 +1007,7 @@ export default function TierPricingPanel() {
 
       {/* ── Tier Management Dialog ───────────────────────────────────────────── */}
       <Dialog open={tiersDialogOpen} onOpenChange={setTiersDialogOpen}>
-        <DialogContent className='sm:max-w-lg'>
+        <DialogContent className='sm:max-w-lg h-[80vh] sm:h-[100vh] overflow-y-auto'>
           <DialogHeader>
             <DialogTitle className='font-antigua'>Manage Tiers</DialogTitle>
             <p className='text-xs text-muted-foreground'>
@@ -1018,7 +1018,7 @@ export default function TierPricingPanel() {
 
           <div className='space-y-4'>
             {/* Tier list */}
-            <div className='overflow-hidden rounded-xl border'>
+            <div className='overflow-x-auto rounded-xl border'>
               <Table>
                 <TableHeader>
                   <TableRow>

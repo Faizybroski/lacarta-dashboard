@@ -42,9 +42,9 @@ export default function EventsScheduled() {
   return (
     <>
       {/* ====================== CALENDAR CARD ====================== */}
-      <Card className='overflow-hidden rounded-xl border bg-[#F9FAFB] shadow-sm'>
-        <CardHeader className='px-6 pt-5 pb-2'>
-          <div className='flex items-start justify-between'>
+      <Card className='w-full overflow-hidden rounded-xl border bg-[#F9FAFB] shadow-sm'>
+        <CardHeader className='px-6 pb-2'>
+          <div className='flex flex-col items-start justify-between sm:flex-row'>
             <div>
               <CardTitle className='font-antigua text-xl font-semibold'>
                 Events Scheduled
@@ -59,14 +59,22 @@ export default function EventsScheduled() {
               <button className='hover:text-black'>‹</button>
               <button className='hover:text-black'>›</button>
             </div>
+            {/* <div className="flex items-center gap-2 text-muted-foreground">
+  <button className="h-8 w-8 flex items-center justify-center rounded-md hover:bg-muted hover:text-black">
+    ‹
+  </button>
+  <button className="h-8 w-8 flex items-center justify-center rounded-md hover:bg-muted hover:text-black">
+    ›
+  </button>
+</div> */}
           </div>
         </CardHeader>
 
-        <CardContent className='px-6'>
+        <CardContent className='relative px-3 sm:px-6'>
           <Calendar
-            mode='single'
+            // mode='single'
             selected={date}
-            onSelect={setDate}
+            // onSelect={setDate}
             month={new Date(2024, 11)}
             showOutsideDays={false}
             fixedWeeks
@@ -86,22 +94,38 @@ export default function EventsScheduled() {
               months: 'w-full',
               month: 'w-full',
               table: 'w-full border-collapse',
-              head_row: 'grid grid-cols-7 mb-3',
+              // head_row: 'grid grid-cols-7 mb-3',
+              head_row: 'grid grid-cols-7 mb-2 sm:mb-3',
               head_cell:
                 'text-center text-xs font-medium text-muted-foreground',
-              row: 'grid grid-cols-7 mt-3',
-              cell: 'relative flex items-center justify-center h-11',
+              // row: 'grid grid-cols-7 mt-3',
+              row: 'grid grid-cols-7 mt-2 sm:mt-3',
+              // cell: 'relative flex items-center justify-center h-11',
+              cell: 'relative flex items-center justify-center h-9 sm:h-11',
+              //           day: `
+              //   h-10 w-10 flex items-center justify-center
+              //   text-sm font-normal text-gray-700
+              //   rounded-full hover:bg-gray-200
+              // `,
               day: `
-      h-10 w-10 flex items-center justify-center 
-      text-sm font-normal text-gray-700 
-      rounded-full hover:bg-gray-200
-    `,
+  h-8 w-8 sm:h-10 sm:w-10
+  flex items-center justify-center
+  text-xs sm:text-sm
+  font-normal text-gray-700
+  rounded-full hover:bg-gray-200
+`,
+              //           day_selected: `
+              //   border-2 border-teal-500
+              //   text-red-600
+              //   bg-transparent
+              //   rounded-xl
+              // `,
               day_selected: `
-      border-2 border-teal-500 
-      text-red-600 
-      bg-transparent 
-      rounded-xl
-    `,
+  border-2 border-teal-500
+  text-red-600
+  bg-transparent
+  rounded-lg sm:rounded-xl
+`,
               day_today: 'bg-transparent',
               caption: 'hidden', // remove default month header
             }}
@@ -181,7 +205,7 @@ export default function EventsScheduled() {
             </div>
           </div> */}
         </CardContent>
-        <CardFooter className='border-t p-2'>
+        <CardFooter className='border-t px-6'>
           <div className='space-y-3'>
             {/* <h3 className='text-lg font-semibold'>Upcoming</h3> */}
             <h3 className='text-sm font-medium text-muted-foreground'>
@@ -207,7 +231,7 @@ export default function EventsScheduled() {
               {upcoming.map((item) => (
                 <Badge
                   key={item.name}
-                  className={`rounded-full px-3 py-1 text-xs font-medium text-white ${item.color}`}
+                  className={`rounded-full border-0 px-3 py-1 text-xs font-medium text-white ${item.color}`}
                 >
                   {item.name}
                 </Badge>

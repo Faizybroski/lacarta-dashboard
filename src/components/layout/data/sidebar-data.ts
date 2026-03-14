@@ -41,7 +41,7 @@ export function getSidebarNavForRole(role: UserRole | string | undefined) {
           items: [
             {
               title: 'Dashboard',
-              url: '/owner/dashboard',
+              url: '/',
               icon: LayoutDashboard,
             },
             {
@@ -60,14 +60,14 @@ export function getSidebarNavForRole(role: UserRole | string | undefined) {
               url: '/events-&-calenders',
               icon: Package,
             },
-            {
-              title: 'Analytics',
-              icon: MessagesSquare,
-              items: [
-                { title: 'Admin Analytics', url: '/analytics/admin-analytics' },
-                { title: 'Owner Analytics', url: '/analytics/owner-analytics' },
-              ],
-            },
+            // {
+            //   title: 'Analytics',
+            //   icon: MessagesSquare,
+            //   items: [
+            //     { title: 'Admin Analytics', url: '/analytics/admin-analytics' },
+            //     { title: 'Owner Analytics', url: '/analytics/owner-analytics' },
+            //   ],
+            // },
             {
               title: 'Lisings',
               url: '/listings',
@@ -100,9 +100,9 @@ export function getSidebarNavForRole(role: UserRole | string | undefined) {
         {
           items: [
             {
-              title: 'Dashboard',
-              url: '/admin/dashboard',
-              icon: LayoutDashboard,
+              title: 'Analytics',
+              url: '/analytics/admin-analytics',
+              icon: MessagesSquare,
             },
             {
               title: 'Content',
@@ -120,13 +120,13 @@ export function getSidebarNavForRole(role: UserRole | string | undefined) {
               url: '/events-&-calenders',
               icon: Package,
             },
-            {
-              title: 'Analytics',
-              icon: MessagesSquare,
-              items: [
-                { title: 'Admin Analytics', url: '/analytics/admin-analytics' },
-              ],
-            },
+            // {
+            //   title: 'Analytics',
+            //   icon: MessagesSquare,
+            //   items: [
+            //     { title: 'Admin Analytics', url: '/analytics/admin-analytics' },
+            //   ],
+            // },
             { title: 'Subscriptions', url: '/subscriptions', icon: Package },
             // {
             //   title: 'Deals',
@@ -153,11 +153,11 @@ export function getSidebarNavForRole(role: UserRole | string | undefined) {
       return [
         {
           items: [
-            {
-              title: 'Dashboard',
-              url: '/assistant/dashboard',
-              icon: LayoutDashboard,
-            },
+            // {
+            //   title: 'Dashboard',
+            //   url: '/assistant/dashboard',
+            //   icon: LayoutDashboard,
+            // },
             {
               title: 'Content',
               icon: ListTodo,
@@ -174,13 +174,13 @@ export function getSidebarNavForRole(role: UserRole | string | undefined) {
               url: '/events-&-calenders',
               icon: Package,
             },
-            {
-              title: 'Analytics',
-              icon: BarChart2,
-              items: [
-                { title: 'Admin Analytics', url: '/analytics/admin-analytics' },
-              ],
-            },
+            // {
+            //   title: 'Analytics',
+            //   icon: BarChart2,
+            //   items: [
+            //     { title: 'Admin Analytics', url: '/analytics/admin-analytics' },
+            //   ],
+            // },
             // {
             //   title: 'Deals',
             //   icon: Users,
@@ -204,11 +204,11 @@ export function getSidebarNavForRole(role: UserRole | string | undefined) {
       return [
         {
           items: [
-            {
-              title: 'Dashboard',
-              url: '/editor/dashboard',
-              icon: LayoutDashboard,
-            },
+            // {
+            //   title: 'Dashboard',
+            //   url: '/editor/dashboard',
+            //   icon: LayoutDashboard,
+            // },
             {
               title: 'Content',
               icon: ListTodo,
@@ -233,11 +233,11 @@ export function getSidebarNavForRole(role: UserRole | string | undefined) {
       return [
         {
           items: [
-            {
-              title: 'Dashboard',
-              url: '/client/dashboard',
-              icon: LayoutDashboard,
-            },
+            // {
+            //   title: 'Dashboard',
+            //   url: '/client/dashboard',
+            //   icon: LayoutDashboard,
+            // },
             { title: 'My Listings', url: '/my-listings', icon: Building2 },
             {
               title: 'Events & Calendars',
@@ -263,17 +263,17 @@ export function getSidebarNavForRole(role: UserRole | string | undefined) {
       return [
         {
           items: [
-            {
-              title: 'Dashboard',
-              url: '/subscriber/dashboard',
-              icon: LayoutDashboard,
-            },
-            {
-              title: 'Content',
-              icon: ListTodo,
-              items: [{ title: 'Articles', url: '/content' }],
-            },
-            { title: 'Favourites', url: '/favourites', icon: Heart },
+            // {
+            //   title: 'Dashboard',
+            //   url: '/subscriber/dashboard',
+            //   icon: LayoutDashboard,
+            // },
+            // {
+            //   title: 'Content',
+            //   icon: ListTodo,
+            //   items: [{ title: 'Articles', url: '/content' }],
+            // },
+            { title: 'Favorites', url: '/favorites', icon: Heart },
             { title: 'Resources', url: '/resources', icon: Download },
             {
               title: 'Settings',

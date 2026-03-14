@@ -14,25 +14,7 @@ export function DraftContent() {
   return (
     <>
       <Main>
-        <div className='mb-5 flex items-center justify-between space-y-2'>
-          <div>
-            <h1 className='font-antigua text-2xl font-bold tracking-tight'>
-              Content
-            </h1>
-            <p className='text-sm text-muted-foreground'>
-              Manage all editorial content across Lacarta
-            </p>
-          </div>
-          <div className='flex gap-4'>
-            <Button className='border bg-gray-100 text-black shadow hover:bg-gray-100 hover:text-black'>
-              <Compass />
-              Travel Tool
-            </Button>
-            <Button className='bg-gradient-to-r from-[#CF9921] to-[#D2BB6B] text-white shadow hover:bg-black hover:text-white'>
-              <Plus size={30} /> New Article
-            </Button>
-          </div>
-        </div>
+        
         <Tabs
           orientation='vertical'
           defaultValue='overview'

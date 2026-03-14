@@ -69,7 +69,7 @@ export default function FeaturedStoryCard() {
     <Card className='mt-5 border-0 px-0 shadow-none'>
       <CardHeader className='flex flex-row items-center justify-between px-0 pb-2'>
         <CardTitle className='font-antigua text-xl'>Featured Stories</CardTitle>
-        <Button variant='link' className='text-amber-400'>
+        <Button variant='link' className='text-red-400'>
           Manage All <ArrowRight />
         </Button>
       </CardHeader>
@@ -77,7 +77,7 @@ export default function FeaturedStoryCard() {
         {/* <div className='grid grid-cols-1 gap-3 overflow-hidden sm:grid-cols-2 lg:grid-cols-3'> */}
         <div className='flex gap-3 overflow-x-auto pb-2'>
           {featuredStories.map((story, i) => (
-            <Card key={i} className='min-w-[280px] overflow-hidden p-0'>
+            <Card key={i} className='min-w-[200px] sm:min-w-[280px] overflow-hidden p-0'>
               <div className='relative aspect-[3.5/1.5] w-full bg-gray-100'>
                 {/* <img src={story.image} alt={story.title} className="absolute inset-0 w-full h-full object-cover" /> */}
               </div>

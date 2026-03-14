@@ -1694,8 +1694,8 @@ export function ListingFormPage() {
       <Main>
         {/* ── Sticky action bar ── */}
         <div className='sticky top-0 z-10 -mx-2 -mt-6 mb-6  bg-background/95 px-2 py-3 backdrop-blur supports-backdrop-filter:bg-background/60 sm:px-2'>
-          <div className='flex items-center justify-between gap-2'>
-            <div className='flex min-w-0 items-center gap-2'>
+          <div className='flex items-center justify-between flex-col sm:flex-row gap-2'>
+            <div className='flex min-w-0 items-center gap-2 self-start'>
               <Button
                 variant='ghost'
                 size='icon'
@@ -1715,8 +1715,8 @@ export function ListingFormPage() {
                 </p>
               </div>
             </div>
-            <div className='flex shrink-0 items-center gap-2'>
-              <Select
+            <div className='flex shrink-0 items-center gap-2 self-end'>
+              {/* <Select
                 value={form.status}
                 onValueChange={(v) => set('status', v as ListingStatus)}
               >
@@ -1734,7 +1734,7 @@ export function ListingFormPage() {
                     </SelectItem>
                   ))}
                 </SelectContent>
-              </Select>
+              </Select> */}
               <Button
                 variant='outline'
                 size='sm'

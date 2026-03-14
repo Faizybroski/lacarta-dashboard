@@ -21,18 +21,21 @@ export function Subscription() {
       <Header />
 
       <Main>
-        <div className='mb-2 space-y-2'>
-          <h1 className='font-antigua text-3xl font-bold tracking-tight'>
-            Subscription
-          </h1>
-          <p className='mb-10 text-xs text-muted-foreground'>
-            {isClient ? 'View and manage your subscription plan.' : 'Manage Plans, Pricings, Limits and Access.'}
-          </p>
-        </div>
-
-        {/* ===== Client-Facing: Plan cards + Payment ===== */}
-        {(isClient || isOwner) && (
+        {isClient && (
           <>
+            <div className='mb-2 space-y-2'>
+              <h1 className='font-antigua text-3xl font-bold tracking-tight'>
+                Subscription
+              </h1>
+              <p className='mb-10 text-xs text-muted-foreground'>
+                {isClient
+                  ? 'View and manage your subscription plan.'
+                  : 'Manage Plans, Pricings, Limits and Access.'}
+              </p>
+            </div>
+
+            {/* ===== Client-Facing: Plan cards + Payment ===== */}
+
             <PlanGrid />
             <PaymentForm />
           </>
@@ -41,18 +44,26 @@ export function Subscription() {
         {/* ===== Owner/Admin Management ===== */}
         {isAdminOrAbove && (
           <>
-            <hr className='my-8 border-dashed' />
-            <div className='mb-2 space-y-1'>
-              <h1 className='font-antigua text-2xl font-bold tracking-tight'>
+          <div className='mb-2 space-y-2'>
+              <h1 className='font-antigua text-3xl font-bold tracking-tight'>
                 Admin Management
+              </h1>
+              <p className='mb-10 text-xs text-muted-foreground'>
+                Configure tiers, pricing rules, features and access control.
+              </p>
+            </div>
+            {/* <hr className='my-8 border-dashed' />
+            <div className='mb-2 space-y-1'>
+              <h1 className='font-antigua text-3xl font-bold tracking-tight'>
+                
               </h1>
               <p className='text-xs text-muted-foreground'>
                 Configure tiers, pricing rules, features and access control.
               </p>
-            </div>
-            <AccessControl />
+            </div> */}
             <TierPricingPanel />
             <FeaturesLibrary />
+            <AccessControl />
           </>
         )}
       </Main>
