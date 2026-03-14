@@ -15,6 +15,7 @@ import {
   MessagesSquare,
   ShieldCheck,
   AudioWaveform,
+  LayoutList,
   Command,
   GalleryVerticalEnd,
   Heart,
@@ -67,15 +68,20 @@ export function getSidebarNavForRole(role: UserRole | string | undefined) {
                 { title: 'Owner Analytics', url: '/analytics/owner-analytics' },
               ],
             },
-            { title: 'Subscriptions', url: '/subscriptions', icon: Package },
             {
-              title: 'Deals',
-              icon: Users,
-              items: [
-                { title: 'All Deals', url: '/deals/all-deals' },
-                { title: 'Active Deals', url: '/deals/active-deals' },
-              ],
+              title: 'Lisings',
+              url: '/listings',
+              icon: LayoutList,
             },
+            { title: 'Subscriptions', url: '/subscriptions', icon: Package },
+            // {
+            //   title: 'Deals',
+            //   icon: Users,
+            //   items: [
+            //     { title: 'All Deals', url: '/deals/all-deals' },
+            //     { title: 'Active Deals', url: '/deals/active-deals' },
+            //   ],
+            // },
             { title: 'Filters', url: '/filters', icon: Package },
             // { title: 'Users', url: '/users', icon: Users },
             // { title: 'Tasks', url: '/tasks', icon: ListTodo },
@@ -122,14 +128,14 @@ export function getSidebarNavForRole(role: UserRole | string | undefined) {
               ],
             },
             { title: 'Subscriptions', url: '/subscriptions', icon: Package },
-            {
-              title: 'Deals',
-              icon: Users,
-              items: [
-                { title: 'All Deals', url: '/deals/all-deals' },
-                { title: 'Active Deals', url: '/deals/active-deals' },
-              ],
-            },
+            // {
+            //   title: 'Deals',
+            //   icon: Users,
+            //   items: [
+            //     { title: 'All Deals', url: '/deals/all-deals' },
+            //     { title: 'Active Deals', url: '/deals/active-deals' },
+            //   ],
+            // },
             { title: 'Filters', url: '/filters', icon: Package },
             // { title: 'Users', url: '/users', icon: Users },
             // { title: 'Tasks', url: '/tasks', icon: ListTodo },
@@ -175,14 +181,14 @@ export function getSidebarNavForRole(role: UserRole | string | undefined) {
                 { title: 'Admin Analytics', url: '/analytics/admin-analytics' },
               ],
             },
-            {
-              title: 'Deals',
-              icon: Users,
-              items: [
-                { title: 'All Deals', url: '/deals/all-deals' },
-                { title: 'Active Deals', url: '/deals/active-deals' },
-              ],
-            },
+            // {
+            //   title: 'Deals',
+            //   icon: Users,
+            //   items: [
+            //     { title: 'All Deals', url: '/deals/all-deals' },
+            //     { title: 'Active Deals', url: '/deals/active-deals' },
+            //   ],
+            // },
             // { title: 'Users', url: '/users', icon: Users },
             // { title: 'Chats', url: '/chats', icon: MessageSquare },
             {
@@ -238,11 +244,11 @@ export function getSidebarNavForRole(role: UserRole | string | undefined) {
               url: '/events-&-calenders',
               icon: Package,
             },
-            {
-              title: 'Deals',
-              icon: Users,
-              items: [{ title: 'Active Deals', url: '/deals/active-deals' }],
-            },
+            // {
+            //   title: 'Deals',
+            //   icon: Users,
+            //   items: [{ title: 'Active Deals', url: '/deals/active-deals' }],
+            // },
             { title: 'Subscriptions', url: '/subscriptions', icon: Package },
             {
               title: 'Settings',
@@ -566,20 +572,20 @@ export const sidebarData: any = {
           url: '/subscriptions',
           icon: Package,
         },
-        {
-          title: 'Deals',
-          icon: Users,
-          items: [
-            {
-              title: 'All Deals',
-              url: '/deals/all-deals',
-            },
-            {
-              title: 'Active Deals',
-              url: '/deals/active-deals',
-            },
-          ],
-        },
+        // {
+        //   title: 'Deals',
+        //   icon: Users,
+        //   items: [
+        //     {
+        //       title: 'All Deals',
+        //       url: '/deals/all-deals',
+        //     },
+        //     {
+        //       title: 'Active Deals',
+        //       url: '/deals/active-deals',
+        //     },
+        //   ],
+        // },
         {
           title: 'Filters',
           url: '/filters',

@@ -395,6 +395,7 @@ export function CategoryPage() {
       <Header />
 
       <Main>
+        
         {/* ── Page Header ──────────────────────────────────── */}
         <div className='mb-6 space-y-1'>
           <h1 className='font-antigua text-3xl font-bold tracking-tight'>

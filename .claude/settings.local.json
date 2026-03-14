@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx tsc:*)",
+      "Bash(echo \"EXIT:$?\")",
+      "Bash(npx vite:*)",
+      "Bash(\"d:\\\\lacarta-dashboard-main live\\\\main\\\\src\\\\features\\\\listings\\\\ListingFormPage.tsx.tmp\")",
+      "Bash(move /Y \"d:\\\\lacarta-dashboard-main live\\\\main\\\\src\\\\features\\\\listings\\\\ListingFormPage.tsx.tmp\" \"d:\\\\lacarta-dashboard-main live\\\\main\\\\src\\\\features\\\\listings\\\\ListingFormPage.tsx\")",
+      "Bash(\"/tmp/lf_clean.tsx\")",
+      "Bash(cp \"/tmp/lf_clean.tsx\" \"d:\\\\lacarta-dashboard-main live\\\\main\\\\src\\\\features\\\\listings\\\\ListingFormPage.tsx\")",
+      "Bash(node -e \":*)"
+    ]
+  }
+}

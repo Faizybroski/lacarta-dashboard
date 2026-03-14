@@ -46,6 +46,9 @@ import { SettingsProfile } from '@/features/settings/profile'
 import { Subscription } from '@/features/subscription/index'
 import { Tasks } from '@/features/tasks/index'
 import { Users } from '@/features/users/index'
+import { ListingDetailPage } from '@/features/listings/ListingDetailPage'
+import { ListingFormPage } from '@/features/listings/ListingFormPage'
+import { ListingsPage } from '@/features/listings/index'
 
 function ErrorComponent() {
   const { error } = useParams<{ error?: string }>()
@@ -295,6 +298,11 @@ export default (
         </RoleGuard>
       }
     />
+
+    <Route path='/listings' element={<ListingsPage />} />
+    <Route path='/listings/create' element={<ListingFormPage />} />
+    <Route path='/listings/:id' element={<ListingDetailPage />} />
+    <Route path='/listings/:id/edit' element={<ListingFormPage />} />
 
     {/* Settings — all roles */}
     <Route path='/settings' element={<Settings />}>
