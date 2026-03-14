@@ -1,4 +1,11 @@
 import { useEffect, useState, useCallback, useMemo, useRef } from 'react'
+import Highlight from '@tiptap/extension-highlight'
+import Image from '@tiptap/extension-image'
+import Link from '@tiptap/extension-link'
+import TextAlign from '@tiptap/extension-text-align'
+import Underline from '@tiptap/extension-underline'
+import { EditorContent, useEditor } from '@tiptap/react'
+import StarterKit from '@tiptap/starter-kit'
 import {
   ArrowLeft,
   Plus,
@@ -6,7 +13,7 @@ import {
   MapPin,
   DollarSign,
   ImageIcon,
-  Link as LinkIcon,
+  Link as LinkIcon,Sparkles, FileText ,
   Map,
   ChevronsUpDown,
   Lightbulb,
@@ -61,6 +68,8 @@ import { Switch } from '@/components/ui/switch'
 import { Textarea } from '@/components/ui/textarea'
 import { Header } from '@/components/layout/header'
 import { Main } from '@/components/layout/main'
+
+// import { SimpleEditor } from '@/components/tiptap-templates/simple/simple-editor'
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -242,12 +251,12 @@ function SectionCard({
   children: React.ReactNode
 }) {
   return (
-    <Card className='rounded-md'>
-      <CardHeader className='pb-3'>
+    <Card className='rounded-xl'>
+      <CardHeader className=''>
         <div className='flex items-center gap-2.5'>
-          <span className='text-amber-500'>{icon}</span>
+          <span className='text-gold p-2 rounded-md bg-gold/10'>{icon}</span>
           <div>
-            <CardTitle className='text-base font-semibold'>{title}</CardTitle>
+            <CardTitle className='text-base font-bold'>{title}</CardTitle>
             {description && (
               <p className='mt-0.5 text-xs text-muted-foreground'>
                 {description}
@@ -306,7 +315,7 @@ function AddButton({
       variant='outline'
       onClick={onClick}
       disabled={disabled}
-      className='w-full rounded-md border-dashed text-muted-foreground hover:border-amber-300 hover:text-amber-600'
+      className='w-full rounded-md border-dashed text-muted-foreground hover:border-gold hover:text-gold'
     >
       <Plus className='mr-2 h-4 w-4' />
       {children}
@@ -514,8 +523,8 @@ function PhotoUploader({
         className={cn(
           'relative flex h-64 w-full cursor-pointer flex-col items-center justify-center gap-3 overflow-hidden rounded-md border-2 border-dashed transition-colors',
           isDragging
-            ? 'border-amber-400 bg-amber-50'
-            : 'border-border hover:border-amber-300 hover:bg-muted/30',
+            ? 'border-gold bg-gold/10'
+            : 'border-border hover:border-gold hover:bg-muted/30',
           disabled && 'cursor-not-allowed opacity-50',
           error && !currentUrl && 'border-destructive'
         )}
@@ -550,7 +559,7 @@ function PhotoUploader({
         ) : (
           <div className='flex flex-col items-center gap-2 text-center'>
             {uploading ? (
-              <Loader2 className='h-10 w-10 animate-spin text-amber-500' />
+              <Loader2 className='h-10 w-10 animate-spin text-gold' />
             ) : (
               <Upload className='h-10 w-10 text-muted-foreground' />
             )}
@@ -674,8 +683,8 @@ function GalleryUploader({
         className={cn(
           'flex h-24 cursor-pointer flex-col items-center justify-center gap-1.5 rounded-md border-2 border-dashed transition-colors',
           isDragging
-            ? 'border-amber-400 bg-amber-50'
-            : 'border-border hover:border-amber-300 hover:bg-muted/30',
+            ? 'border-gold bg-gold/10'
+            : 'border-border hover:border-gold hover:bg-muted/30',
           disabled && 'cursor-not-allowed opacity-50'
         )}
       >
@@ -1060,9 +1069,9 @@ function RoadMapEditor({
     <div className='space-y-3'>
       {roadMap.map((day, di) => (
         <div key={di} className='overflow-hidden rounded-md border'>
-          <div className='flex items-center justify-between bg-amber-50 px-4 py-2.5'>
+          <div className='flex items-center justify-between bg-gold/10 px-4 py-2.5'>
             <div className='flex items-center gap-3'>
-              <span className='flex h-6 w-6 items-center justify-center rounded-full bg-amber-500 text-xs font-bold text-white'>
+              <span className='flex h-6 w-6 items-center justify-center rounded-full bg-gradient-to-b from-gold to-gold-light text-xs font-bold text-white'>
                 {day.day}
               </span>
               <Input
@@ -1114,7 +1123,7 @@ function RoadMapEditor({
               type='button'
               variant='ghost'
               size='sm'
-              className='h-7 text-xs text-amber-600'
+              className='h-7 text-xs text-gold'
               onClick={() => addItem(di)}
             >
               <Plus className='mr-1 h-3 w-3' /> Add activity
@@ -1246,6 +1255,108 @@ function MenuEditor({
 
 // ─── Rich Text Editor ────────────────────────────────────────────────────────
 
+// function RichTextEditor({
+//   value,
+//   onChange,
+// }: {
+//   value: string
+//   onChange: (v: string) => void
+// }) {
+//   const editorRef = useRef<HTMLDivElement>(null)
+//   const lastSynced = useRef('')
+
+//   // Sync external value into DOM only when it changes from outside (e.g. load from DB)
+//   useEffect(() => {
+//     if (editorRef.current && value !== lastSynced.current) {
+//       editorRef.current.innerHTML = value
+//       lastSynced.current = value
+//     }
+//   }, [value])
+
+//   const exec = (cmd: string, arg?: string) => {
+//     document.execCommand(cmd, false, arg)
+//     if (editorRef.current) {
+//       const html = editorRef.current.innerHTML
+//       lastSynced.current = html
+//       onChange(html)
+//     }
+//     editorRef.current?.focus()
+//   }
+
+//   const ToolBtn = ({
+//     cmd,
+//     arg,
+//     label,
+//     title,
+//   }: {
+//     cmd: string
+//     arg?: string
+//     label: React.ReactNode
+//     title: string
+//   }) => (
+//     <button
+//       type='button'
+//       title={title}
+//       onMouseDown={(e) => {
+//         e.preventDefault()
+//         exec(cmd, arg)
+//       }}
+//       className='flex h-7 min-w-[28px] items-center justify-center rounded px-1 text-sm text-muted-foreground hover:bg-muted hover:text-foreground'
+//     >
+//       {label}
+//     </button>
+//   )
+
+//   return (
+//     <div className='relative rounded-md border focus-within:ring-1 focus-within:ring-ring'>
+//       <div className='flex flex-wrap items-center gap-0.5 border-b px-2 py-1.5'>
+//         <ToolBtn cmd='bold' title='Bold' label={<strong>B</strong>} />
+//         <ToolBtn cmd='italic' title='Italic' label={<em>I</em>} />
+//         <ToolBtn
+//           cmd='underline'
+//           title='Underline'
+//           label={<span className='underline'>U</span>}
+//         />
+//         <div className='mx-1 h-4 w-px bg-border' />
+//         <ToolBtn cmd='insertUnorderedList' title='Bullet list' label='• list' />
+//         <ToolBtn
+//           cmd='insertOrderedList'
+//           title='Numbered list'
+//           label='1. list'
+//         />
+//         <div className='mx-1 h-4 w-px bg-border' />
+//         <ToolBtn
+//           cmd='formatBlock'
+//           arg='h3'
+//           title='Heading'
+//           label={<span className='font-semibold'>H3</span>}
+//         />
+//         <ToolBtn cmd='formatBlock' arg='p' title='Normal text' label='¶' />
+//         <div className='ml-auto'>
+//           <ToolBtn cmd='removeFormat' title='Clear formatting' label='Clear' />
+//         </div>
+//       </div>
+//       <div
+//         ref={editorRef}
+//         contentEditable
+//         suppressContentEditableWarning
+//         onInput={() => {
+//           if (editorRef.current) {
+//             const html = editorRef.current.innerHTML
+//             lastSynced.current = html
+//             onChange(html)
+//           }
+//         }}
+//         className='prose prose-sm min-h-[180px] max-w-none cursor-text p-3 text-sm outline-none [&_h3]:mb-1 [&_h3]:text-base [&_h3]:font-semibold [&_ol]:list-decimal [&_ol]:pl-5 [&_ul]:list-disc [&_ul]:pl-5'
+//       />
+//       {!value && (
+//         <p className='pointer-events-none absolute top-12 left-3 text-sm text-muted-foreground/50'>
+//           Write a detailed description…
+//         </p>
+//       )}
+//     </div>
+//   )
+// }
 function RichTextEditor({
   value,
   onChange,
@@ -1253,35 +1364,45 @@ function RichTextEditor({
   value: string
   onChange: (v: string) => void
 }) {
-  const editorRef = useRef<HTMLDivElement>(null)
-  const lastSynced = useRef('')
+  const editor = useEditor({
+    extensions: [
+      StarterKit,
+      Underline,
+      Link.configure({
+        openOnClick: false,
+      }),
+      Image,
+      Highlight,
+      TextAlign.configure({
+        types: ['heading', 'paragraph'],
+      }),
+    ],
+    content: value,
+    editorProps: {
+      attributes: {
+        class:
+          'prose prose-sm max-w-none min-h-[180px] p-3 text-sm outline-none',
+      },
+    },
+    onUpdate({ editor }: any) {
+      onChange(editor.getHTML())
+    },
+  })
 
-  // Sync external value into DOM only when it changes from outside (e.g. load from DB)
   useEffect(() => {
-    if (editorRef.current && value !== lastSynced.current) {
-      editorRef.current.innerHTML = value
-      lastSynced.current = value
+    if (editor && value !== editor.getHTML()) {
+      editor.commands.setContent(value)
     }
-  }, [value])
+  }, [value, editor])
 
-  const exec = (cmd: string, arg?: string) => {
-    document.execCommand(cmd, false, arg)
-    if (editorRef.current) {
-      const html = editorRef.current.innerHTML
-      lastSynced.current = html
-      onChange(html)
-    }
-    editorRef.current?.focus()
-  }
+  if (!editor) return null
 
   const ToolBtn = ({
-    cmd,
-    arg,
+    onClick,
     label,
     title,
   }: {
-    cmd: string
-    arg?: string
+    onClick: () => void
     label: React.ReactNode
     title: string
   }) => (
@@ -1290,7 +1411,7 @@ function RichTextEditor({
       title={title}
       onMouseDown={(e) => {
         e.preventDefault()
-        exec(cmd, arg)
+        onClick()
       }}
       className='flex h-7 min-w-[28px] items-center justify-center rounded px-1 text-sm text-muted-foreground hover:bg-muted hover:text-foreground'
     >
@@ -1298,53 +1419,149 @@ function RichTextEditor({
     </button>
   )
 
+  const setLink = () => {
+    const url = prompt('Enter URL')
+    if (url) {
+      editor.chain().focus().setLink({ href: url }).run()
+    }
+  }
+
   return (
-    <div className='relative rounded-md border focus-within:ring-1 focus-within:ring-ring'>
+    <div className='rounded-md border focus-within:ring-1 focus-within:ring-ring'>
       <div className='flex flex-wrap items-center gap-0.5 border-b px-2 py-1.5'>
-        <ToolBtn cmd='bold' title='Bold' label={<strong>B</strong>} />
-        <ToolBtn cmd='italic' title='Italic' label={<em>I</em>} />
         <ToolBtn
-          cmd='underline'
+          title='Bold'
+          label={<strong>B</strong>}
+          onClick={() => editor.chain().focus().toggleBold().run()}
+        />
+
+        <ToolBtn
+          title='Italic'
+          label={<em>I</em>}
+          onClick={() => editor.chain().focus().toggleItalic().run()}
+        />
+
+        <ToolBtn
           title='Underline'
           label={<span className='underline'>U</span>}
+          onClick={() => editor.chain().focus().toggleUnderline().run()}
         />
-        <div className='mx-1 h-4 w-px bg-border' />
-        <ToolBtn cmd='insertUnorderedList' title='Bullet list' label='• list' />
+
         <ToolBtn
-          cmd='insertOrderedList'
-          title='Numbered list'
+          title='Strike'
+          label={<span className='strike'>S</span>}
+          onClick={() => editor.chain().focus().toggleStrike().run()}
+        />
+
+        <div className='mx-1 h-4 w-px bg-border' />
+
+        <ToolBtn
+          title='Heading 1'
+          label='H1'
+          onClick={() => editor.chain().focus().toggleHeading({ level: 1 }).run()}
+        />
+
+        <ToolBtn
+          title='Heading 2'
+          label='H2'
+          onClick={() => editor.chain().focus().toggleHeading({ level: 2 }).run()}
+        />
+
+        <ToolBtn
+          title='Heading 3'
+          label='H3'
+          onClick={() =>
+            editor.chain().focus().toggleHeading({ level: 3 }).run()
+          }
+        />
+
+        <ToolBtn
+          title='Paragraph'
+          label='¶'
+          onClick={() => editor.chain().focus().setParagraph().run()}
+        />
+
+        <div className='mx-1 h-4 w-px bg-border' />
+
+        <ToolBtn
+          title='Bullet List'
+          label='• list'
+          onClick={() => editor.chain().focus().toggleBulletList().run()}
+        />
+
+        <ToolBtn
+          title='Numbered List'
           label='1. list'
+          onClick={() => editor.chain().focus().toggleOrderedList().run()}
         />
+
+        <ToolBtn
+          title='Blockquote'
+          label='❝'
+          onClick={() => editor.chain().focus().toggleBlockquote().run()}
+        />
+
+        <ToolBtn
+          title='Code Block'
+          label='</>'
+          onClick={() => editor.chain().focus().toggleCodeBlock().run()}
+        />
+
         <div className='mx-1 h-4 w-px bg-border' />
         <ToolBtn
-          cmd='formatBlock'
-          arg='h3'
-          title='Heading'
-          label={<span className='font-semibold'>H3</span>}
+          title='Align Left'
+          label='⬅'
+          onClick={() => editor.chain().focus().setTextAlign('left').run()}
         />
-        <ToolBtn cmd='formatBlock' arg='p' title='Normal text' label='¶' />
-        <div className='ml-auto'>
-          <ToolBtn cmd='removeFormat' title='Clear formatting' label='Clear' />
+
+        <ToolBtn
+          title='Align Center'
+          label='⬌'
+          onClick={() => editor.chain().focus().setTextAlign('center').run()}
+        />
+
+        <ToolBtn
+          title='Align Right'
+          label='➡'
+          onClick={() => editor.chain().focus().setTextAlign('right').run()}
+        />
+
+        <div className='mx-1 h-4 w-px bg-border' />
+
+        <ToolBtn
+          title='Highlight'
+          label='🖍'
+          onClick={() => editor.chain().focus().toggleHighlight().run()}
+        />
+
+        <ToolBtn title='Add Link' label='🔗' onClick={setLink} />
+
+        <div className='ml-auto flex gap-1'>
+          <ToolBtn
+            title='Undo'
+            label='↺'
+            onClick={() => editor.chain().focus().undo().run()}
+          />
+
+          <ToolBtn
+            title='Redo'
+            label='↻'
+            onClick={() => editor.chain().focus().redo().run()}
+          />
+
+          <div className='ml-auto'>
+            <ToolBtn
+              title='Clear formatting'
+              label='Clear'
+              onClick={() =>
+                editor.chain().focus().clearNodes().unsetAllMarks().run()
+              }
+            />
+          </div>
         </div>
       </div>
-      <div
-        ref={editorRef}
-        contentEditable
-        suppressContentEditableWarning
-        onInput={() => {
-          if (editorRef.current) {
-            const html = editorRef.current.innerHTML
-            lastSynced.current = html
-            onChange(html)
-          }
-        }}
-        className='prose prose-sm min-h-[180px] max-w-none cursor-text p-3 text-sm outline-none [&_h3]:mb-1 [&_h3]:text-base [&_h3]:font-semibold [&_ol]:list-decimal [&_ol]:pl-5 [&_ul]:list-disc [&_ul]:pl-5'
-      />
-      {!value && (
-        <p className='pointer-events-none absolute top-12 left-3 text-sm text-muted-foreground/50'>
-          Write a detailed description…
-        </p>
-      )}
+      <EditorContent editor={editor} />
+      {/* <SimpleEditor /> */}
     </div>
   )
 }
@@ -1693,8 +1910,8 @@ export function ListingFormPage() {
       <Header />
       <Main>
         {/* ── Sticky action bar ── */}
-        <div className='sticky top-0 z-10 -mx-2 -mt-6 mb-6  bg-background/95 px-2 py-3 backdrop-blur supports-backdrop-filter:bg-background/60 sm:px-2'>
-          <div className='flex items-center justify-between flex-col sm:flex-row gap-2'>
+        <div className='sticky top-0 z-10 -mx-2 -mt-6 mb-6 bg-background/95 px-2 py-3 backdrop-blur supports-backdrop-filter:bg-background/60 sm:px-2'>
+          <div className='flex flex-col items-center justify-between gap-2 sm:flex-row'>
             <div className='flex min-w-0 items-center gap-2 self-start'>
               <Button
                 variant='ghost'
@@ -1765,7 +1982,7 @@ export function ListingFormPage() {
         </div>
 
         {/* ── Single-column form ── */}
-        <div className='mx-auto  space-y-6'>
+        <div className='mx-auto space-y-6'>
           {/* Auth error banner */}
           {errors.user_id && (
             <div className='rounded-md border border-destructive/30 bg-destructive/10 px-4 py-3 text-sm text-destructive'>
@@ -1818,7 +2035,7 @@ export function ListingFormPage() {
                 >
                   <SelectTrigger
                     className={cn(
-                      'rounded-md',
+                      'rounded-md w-full',
                       errors.category_id && 'border-destructive'
                     )}
                   >
@@ -1840,12 +2057,13 @@ export function ListingFormPage() {
               >
                 <Select
                   value={form.sub_category_id || ''}
+                  
                   onValueChange={(v) => set('sub_category_id', v)}
                   disabled={!form.category_id || subCategories.length === 0}
                 >
                   <SelectTrigger
                     className={cn(
-                      'rounded-md',
+                      'rounded-md w-full',
                       errors.sub_category_id && 'border-destructive'
                     )}
                   >
@@ -1899,23 +2117,23 @@ export function ListingFormPage() {
               </div>
             </FormField>
             <FormField
-              label='Neighbourhood'
+              label='Neighborhood'
               required
               error={errors.neighborhoods}
-              hint='Select the primary neighbourhood in Cartagena'
+              hint='Select the primary neighborhood in Cartagena'
             >
               <SingleSelectAttr
                 options={attributesByType.neighborhood}
                 value={form.neighborhoods[0]}
                 onChange={(v) => set('neighborhoods', [v])}
-                emptyMsg='No neighbourhoods found — select a category first'
+                emptyMsg='No neighborhoods found — select a category first'
               />
             </FormField>
           </SectionCard>
 
           {/* S2 — Description & Story */}
           <SectionCard
-            icon={<Tag className='h-5 w-5' />}
+            icon={<FileText className='h-5 w-5' />}
             title='Description & Story'
             description='Rich description — use the toolbar for bold, italic, lists and headings'
           >
@@ -1965,8 +2183,8 @@ export function ListingFormPage() {
 
           {/* S4 — Categorization */}
           <SectionCard
-            icon={<CheckSquare className='h-5 w-5' />}
-            title='Categorization'
+            icon={<Sparkles className='h-5 w-5' />}
+            title='Ammenities & Features'
             description='Tags and attributes loaded from the selected category'
           >
             <FormField
